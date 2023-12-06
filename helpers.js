@@ -45,7 +45,7 @@ const handleErrors = (req, res, next) => {
     return next(new ExpressError('You must pass a query key of nums with a comma-separated list of numbers.', 400));
   }
 
-  req.numbers = convertStringToNumbers;
+  req.numbers = convertStringToNumbers(nums);
 
   if (req.numbers.some(isNaN)) {
     return next(new ExpressError('Invalid number in nums.', 400));

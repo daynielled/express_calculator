@@ -7,21 +7,21 @@ const ExpressError = require('./expressError');
 app.get('/mean', handleErrors,(req,res,next) => {
     console.log(req);
     const {numbers} = req;
-    const mean = calculateMean(numbers).mean;
-
+    const mean = calculateMean(numbers);
+    
     res.json({operation: 'mean', value: mean});
 });
 
 app.get('/median', handleErrors,(req,res,next) => {
     const {numbers} = req;
-    const median = calculateMedian(numbers).median;
+    const median = calculateMedian(numbers);
 
     res.json({operation: 'median', value: median});
 });
 
 app.get('/mode', handleErrors,(req,res,next) => {
     const {numbers} = req;
-    const mode = calculateMode(numbers).mode;
+    const mode = calculateMode(numbers);
 
     res.json({operation: 'mode', value: mode});
 });
