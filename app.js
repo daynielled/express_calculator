@@ -5,6 +5,7 @@ const ExpressError = require('./expressError');
 
 
 app.get('/mean', handleErrors,(req,res,next) => {
+    console.log(req);
     const {numbers} = req;
     const mean = calculateMean(numbers).mean;
 
@@ -38,5 +39,5 @@ app.use((err,req,res,next) =>{
 })
 
 app.listen(3000, () => {
-    console.log(`Server is running on http://localhost:3000`)
+    console.log(`Server is running on local host 3000`)
 });
